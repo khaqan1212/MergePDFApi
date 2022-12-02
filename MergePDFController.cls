@@ -33,9 +33,11 @@ public with sharing class MergePDFController {
     @AuraEnabled
     public static string getMergedPdfUrl(String[] urlsList){
         try {
-            MergePDFCallout mergePDFsRequest = new MergePDFCallout(urlsList[0], urlsList[1]);
-            Id jobId = System.enqueueJob(mergePDFsRequest);
-            system.debug(jobId);
+            if(urlsList.size()>=2){
+                MergePDFCallout mergePDFsRequest = new MergePDFCallout(urlsList[0], urlsList[1]);
+                Id jobId = System.enqueueJob(mergePDFsRequest);
+                system.debug(jobId);
+            }
             return '';
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
