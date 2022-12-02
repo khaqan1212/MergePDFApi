@@ -18,7 +18,6 @@ public with sharing class MergePDFController {
             }
             insert contentDistributionList;     
             List<ContentDistribution> contentDistributionPublicItems = [SELECT DistributionPublicUrl, ContentDownloadUrl FROM ContentDistribution WHERE ContentDocumentId=:docIds];
-            system.debug('ulrs: '+contentDistributionPublicItems);
             String[] publicUrls = new String[]{};
             for(ContentDistribution cdPublic : contentDistributionPublicItems){
                 publicUrls.add(cdPublic.ContentDownloadUrl);
