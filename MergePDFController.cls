@@ -34,7 +34,6 @@ public with sharing class MergePDFController {
     public static string getMergedPdfUrl(String[] urlsList){
         try {
             MergePDFCallout mergePDFsRequest = new MergePDFCallout(urlsList[0], urlsList[1]);
-            //UpdateCustomerQueueable updateCust = new UpdateCustomerQueueable(recordId, n);
             Id jobId = System.enqueueJob(mergePDFsRequest);
             system.debug(jobId);
             return 'abc';
