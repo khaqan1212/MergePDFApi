@@ -36,7 +36,7 @@ public with sharing class MergePDFController {
             MergePDFCallout mergePDFsRequest = new MergePDFCallout(urlsList[0], urlsList[1]);
             Id jobId = System.enqueueJob(mergePDFsRequest);
             system.debug(jobId);
-            return 'abc';
+            return '';
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
